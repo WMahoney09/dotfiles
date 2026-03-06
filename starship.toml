@@ -1,0 +1,50 @@
+# Starship prompt configuration
+# https://starship.rs/config/
+
+# ─── Prompt format ────────────────────────────────────────────────────────────
+# Uncomment and customize to override the default module order:
+# format = """
+# $directory\
+# $git_branch\
+# $git_status\
+# $character"""
+
+# ─── Directory ────────────────────────────────────────────────────────────────
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+
+# ─── Git branch ──────────────────────────────────────────────────────────────
+[git_branch]
+# symbol = " "
+
+# ─── Git status ──────────────────────────────────────────────────────────────
+[git_status]
+# conflicted = "="
+# ahead = "⇡"
+# behind = "⇣"
+# diverged = "⇕"
+# untracked = "?"
+# stashed = "$"
+# modified = "!"
+# staged = "+"
+# renamed = "»"
+# deleted = "✘"
+
+# ─── Character (prompt symbol) ───────────────────────────────────────────────
+[character]
+# success_symbol = "[❯](bold green)"
+# error_symbol = "[❯](bold red)"
+
+# ─── Command duration ────────────────────────────────────────────────────────
+[cmd_duration]
+min_time = 2_000
+show_milliseconds = false
+
+# ─── Node.js ─────────────────────────────────────────────────────────────────
+# [nodejs]
+# symbol = " "
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+# [python]
+# symbol = " "
