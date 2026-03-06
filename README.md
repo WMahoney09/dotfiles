@@ -11,10 +11,9 @@ Personal dev environment configuration files — shell, terminal, editor, and pr
 | NeoVim | `nvim/` | AstroNvim user config with Mason auto-installed LSPs |
 | Starship | `starship.toml` | Cross-shell prompt with git integration |
 
-## Prerequisites
+## Requirements
 
-- macOS + [Homebrew](https://brew.sh/)
-- [asdf](https://asdf-vm.com/) (for runtime version management)
+- A Unix-like system (macOS or Linux). Windows is not supported.
 
 ## Quick start
 
@@ -23,24 +22,24 @@ Personal dev environment configuration files — shell, terminal, editor, and pr
 git clone <repo-url> ~/agentic/tooling/dotfiles
 cd ~/agentic/tooling/dotfiles
 
-# Install packages (macOS)
+# Install packages (macOS — optional, see below)
 brew bundle
 
 # Create symlinks
 ./setup.sh
 ```
 
-## Linux notes
+## Platform notes
 
-Homebrew is macOS-specific. On Linux, install the equivalent packages manually:
+The symlink setup (`setup.sh`) is platform-independent. Package installation varies:
 
-```bash
-# Example (Ubuntu/Debian)
-sudo apt install neovim fzf
-# Install starship, antidote, zoxide, and ghostty per their docs
-```
-
-Then run `./setup.sh` — the symlink setup is platform-independent.
+- **macOS** — Install [Homebrew](https://brew.sh/), then run `brew bundle` to install everything from the `Brewfile`.
+- **Linux** — Install the equivalent packages manually:
+  ```bash
+  # Example (Ubuntu/Debian)
+  sudo apt install neovim fzf
+  # Install starship, antidote, zoxide, and ghostty per their docs
+  ```
 
 ## Directory structure
 

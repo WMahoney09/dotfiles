@@ -8,7 +8,11 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ─── ASDF fpath (must be before compinit) ────────────────────────────────────
-fpath=(${ASDF_DIR}/completions $fpath)
+if [ -d "$(brew --prefix asdf 2>/dev/null)/share" ]; then
+  fpath=($(brew --prefix asdf)/share/asdf/completions $fpath)
+else
+  fpath=(${ASDF_DIR:-$HOME/.asdf}/completions $fpath)
+fi
 
 # ─── HISTORY ──────────────────────────────────────────────────────────────────
 HISTSIZE=10000
@@ -19,7 +23,11 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 # ─── ASDF ─────────────────────────────────────────────────────────────────────
-. "$HOME/.asdf/asdf.sh"
+if [ -f "$(brew --prefix asdf 2>/dev/null)/libexec/asdf.sh" ]; then
+  . "$(brew --prefix asdf)/libexec/asdf.sh"
+elif [ -f "$HOME/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+fi
 
 # ─── ZSH-AUTOSUGGESTIONS: must be set before antidote loads the plugin ────────
 ZSH_AUTOSUGGEST_USE_ASYNC=1
