@@ -1,0 +1,123 @@
+/* Dracula-themed markdown preview — matches Ghostty/AstroNvim setup */
+
+:root {
+  --bg:        #282a36;
+  --bg-alt:    #44475a;
+  --fg:        #f8f8f2;
+  --comment:   #6272a4;
+  --cyan:      #8be9fd;
+  --green:     #50fa7b;
+  --orange:    #ffb86c;
+  --pink:      #ff79c6;
+  --purple:    #bd93f9;
+  --red:       #ff5555;
+  --yellow:    #f1fa8c;
+}
+
+body {
+  background-color: #181a1b;
+  color: var(--fg);
+  font-family: "Fira Code", "JetBrains Mono", "Cascadia Code", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+/* Override plugin's .markdown-body card to blend into the page background */
+.markdown-body {
+  background: #181a1b !important;
+  border-color: #181a1b !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--purple);
+  font-weight: 600;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+h1 { color: var(--pink); font-size: 2em; border-bottom: 1px solid var(--bg-alt); padding-bottom: 0.3em; }
+h2 { color: var(--purple); font-size: 1.5em; border-bottom: 1px solid var(--bg-alt); padding-bottom: 0.2em; }
+h3 { color: var(--cyan); font-size: 1.2em; }
+
+/* Links */
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--pink); }
+
+/* Code — inline */
+code {
+  background-color: var(--bg-alt);
+  color: var(--green);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Code — fenced blocks */
+pre {
+  background-color: #0d1117 !important;
+  border: 1px solid var(--bg-alt) !important;
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+}
+pre code {
+  background: none !important;
+  color: var(--fg) !important;
+  padding: 0;
+  font-size: 0.88em;
+}
+/* highlight.js hardcodes #f8f8f8 — override it */
+.hljs {
+  background: #0d1117 !important;
+  color: var(--fg) !important;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--purple);
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: #31324a;
+  color: var(--comment);
+}
+blockquote p { margin: 0; }
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+th {
+  background-color: var(--bg-alt);
+  color: var(--purple);
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid var(--bg-alt);
+}
+tr:hover td { background-color: #313344; }
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--bg-alt);
+  margin: 2em 0;
+}
+
+/* Lists */
+ul, ol { padding-left: 1.5em; }
+li { margin: 0.3em 0; }
+li > ul, li > ol { margin: 0.2em 0; }
+
+/* Task list checkboxes */
+input[type="checkbox"] { accent-color: var(--purple); margin-right: 0.4em; }
+
+/* Strong / em */
+strong { color: var(--orange); font-weight: 600; }
+em { color: var(--yellow); font-style: italic; }

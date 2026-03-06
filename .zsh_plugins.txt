@@ -1,0 +1,8 @@
+# Additional completion definitions (fpath only, before compinit)
+zsh-users/zsh-completions kind:fpath
+
+# Fish-style autosuggestions
+zsh-users/zsh-autosuggestions
+
+# Syntax highlighting — MUST be last
+zdharma-continuum/fast-syntax-highlighting
