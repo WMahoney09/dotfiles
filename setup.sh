@@ -64,6 +64,18 @@ else
   echo "  [ok]  TPM already installed"
 fi
 
+# ─── macOS: Ghostty keybind workaround ───────────────────────────────────────
+# Ghostty 1.3.0 regression: Cmd+H fires macOS "Hide" instead of goto_split:left.
+# Disable the system menu shortcut so the Ghostty keybind takes precedence.
+# See: https://github.com/ghostty-org/ghostty/issues/4590
+echo "Setting up macOS workarounds..."
+if defaults read com.mitchellh.ghostty NSUserKeyEquivalents 2>/dev/null | grep -q "Hide Ghostty"; then
+  echo "  [ok]  Ghostty Cmd+H workaround already applied"
+else
+  defaults write com.mitchellh.ghostty NSUserKeyEquivalents -dict-add "Hide Ghostty" '\0'
+  echo "  [fix] Disabled macOS 'Hide Ghostty' menu shortcut (Cmd+H → goto_split)"
+fi
+
 echo ""
 if [ -d "$BACKUP_DIR" ]; then
   echo "Backups saved to: $BACKUP_DIR"
