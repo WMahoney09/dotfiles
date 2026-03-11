@@ -51,6 +51,18 @@ backup_and_link "$DOTFILES_DIR/.zsh_plugins.txt"   "$HOME/.zsh_plugins.txt"
 backup_and_link "$DOTFILES_DIR/ghostty"            "$HOME/.config/ghostty"
 backup_and_link "$DOTFILES_DIR/nvim"               "$HOME/.config/nvim"
 backup_and_link "$DOTFILES_DIR/starship.toml"      "$HOME/.config/starship.toml"
+backup_and_link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
+
+echo ""
+
+# ─── TPM (Tmux Plugin Manager) ──────────────────────────────────────────────
+echo "Setting up TPM..."
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  echo "  [install] TPM cloned — press prefix + I inside tmux to install plugins"
+else
+  echo "  [ok]  TPM already installed"
+fi
 
 echo ""
 if [ -d "$BACKUP_DIR" ]; then

@@ -6,5 +6,7 @@ brew "starship"
 brew "antidote"
 brew "zoxide"
 brew "fzf"
+brew "tmux"
+brew "tmuxinator"
 
 cask "ghostty"
