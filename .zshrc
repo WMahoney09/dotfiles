@@ -71,3 +71,6 @@ alias gloga="git log --graph --decorate --oneline --all origin/main"
 alias gls="git log --graph --decorate --stat"
 alias gst="git status"
 alias gdf="git diff"
+
+# ─── LOCAL OVERRIDES (not tracked by dotfiles) ───────────────────────────────
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
