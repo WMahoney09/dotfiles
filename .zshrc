@@ -45,7 +45,23 @@ eval "$(zoxide init zsh)"
 # ─── STARSHIP (last, so it's not overwritten by other prompt setup) ───────────
 eval "$(starship init zsh)"
 
-# ─── KEYBINDINGS ──────────────────────────────────────────────────────────────
+# ─── VI MODE ─────────────────────────────────────────────────────────────────
+bindkey -v
+export KEYTIMEOUT=1
+
+# Cursor shape: beam in insert mode, block in normal mode
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[2 q'   # block
+  else
+    echo -ne '\e[6 q'   # beam
+  fi
+}
+function zle-line-init { echo -ne '\e[6 q' }  # beam on new prompt
+zle -N zle-keymap-select
+zle -N zle-line-init
+
+# ─── KEYBINDINGS (insert mode) ───────────────────────────────────────────────
 bindkey '^h' backward-char
 bindkey '^j' down-line-or-history
 bindkey '^k' up-line-or-history
