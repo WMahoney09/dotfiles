@@ -16,7 +16,7 @@ The architecture is a two-stage bridge: Claude Code's status line script writes 
 ## Progress
 
 - [x] Phase 1: Claude Code status line script
-- [ ] Phase 2: tmux status reader script
+- [x] Phase 2: tmux status reader script
 - [ ] Phase 3: tmux config integration
 - [ ] Phase 4: setup.sh and installation
 
