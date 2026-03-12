@@ -15,7 +15,10 @@ used=$(printf '%s' "$input" | jq -r '.context_window.used_percentage // empty')
 remaining=$(printf '%s' "$input" | jq -r '.context_window.remaining_percentage // empty')
 
 # Derive TTY-keyed temp file path
-tty_name=$(tty 2>/dev/null | sed 's|/dev/||; s|/|-|g') || tty_name="unknown"
+# The script runs as a child process without a direct TTY, so resolve
+# the controlling terminal from the parent process (Claude Code).
+tty_name=$(ps -o tty= -p "$PPID" 2>/dev/null | tr -d ' ') || tty_name=""
+[ -z "$tty_name" ] || [ "$tty_name" = "??" ] && tty_name="unknown"
 tmp_file="/tmp/claude-context-${tty_name}.json"
 
 # Write context data with timestamp for staleness detection
