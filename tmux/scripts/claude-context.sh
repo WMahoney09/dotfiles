@@ -5,8 +5,9 @@
 
 set -euo pipefail
 
-# Resolve the active pane's TTY and derive the temp file path
-pane_tty=$(tmux display-message -p '#{pane_tty}' 2>/dev/null) || exit 0
+# TTY is passed as $1 from tmux config (#{pane_tty} expanded per-session)
+pane_tty="${1:-}"
+[ -z "$pane_tty" ] && exit 0
 tty_key=$(echo "$pane_tty" | sed 's|/dev/||; s|/|-|g')
 tmp_file="/tmp/claude-context-${tty_key}.json"
 
