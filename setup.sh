@@ -52,6 +52,7 @@ backup_and_link "$DOTFILES_DIR/ghostty"            "$HOME/.config/ghostty"
 backup_and_link "$DOTFILES_DIR/nvim"               "$HOME/.config/nvim"
 backup_and_link "$DOTFILES_DIR/starship.toml"      "$HOME/.config/starship.toml"
 backup_and_link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
+backup_and_link "$DOTFILES_DIR/tmux/themes"        "$HOME/.tmux.conf.d/themes"
 
 echo ""
 

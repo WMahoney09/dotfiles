@@ -1,0 +1,28 @@
+# Paddy Citadel — dark teal background, warm foreground
+# Ported from https://github.com/yl92/paddy-color-theme
+
+background = #092630
+foreground = #e3b19d
+cursor-color = #4bccb7
+selection-background = #205263
+selection-foreground = #fae8e0
+
+# ANSI Colors (normal)
+palette = 0=#205263
+palette = 1=#ff4128
+palette = 2=#14ad35
+palette = 3=#eba31c
+palette = 4=#173fc3
+palette = 5=#db0f8d
+palette = 6=#03d6dd
+palette = 7=#e3b19d
+
+# ANSI Colors (bright)
+palette = 8=#215769
+palette = 9=#ff5a44
+palette = 10=#48ec7f
+palette = 11=#ffd54c
+palette = 12=#509fff
+palette = 13=#ff46c8
+palette = 14=#8febf2
+palette = 15=#fae8e0

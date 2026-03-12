@@ -2,7 +2,7 @@
 # Voyager workflow - terminal-centric agentic development
 
 # Theme & Colors
-theme = dracula
+theme = citadel
 
 # Font Configuration
 font-family = FiraCode Nerd Font
