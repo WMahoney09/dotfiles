@@ -18,50 +18,60 @@ Port three additional Paddy color themes — **Grizzly**, **Ox**, and **Terabyte
 
 ## Progress
 
-- [ ] Phase 1: Grizzly (validation theme)
+- [ ] Phase 1a: Grizzly palette extraction + Ghostty + tmux
+- [ ] Phase 1b: Grizzly nvim colorscheme
 - [ ] Phase 2: Theme switcher and integration wiring
-- [ ] Phase 3: Ox and Terabyte
+- [ ] Phase 3a: Ox (all layers)
+- [ ] Phase 3b: Terabyte (all layers)
 
 ---
 
-## Phase 1: Grizzly (validation theme)
+## Phase 1a: Grizzly palette extraction + Ghostty + tmux
 
-Build Grizzly first to validate that the Citadel template pattern holds for a second theme.
+Extract the Grizzly palette from the VSCode JSON and build the Ghostty and tmux theme files. These are the more mechanical mappings — editor colors, ANSI palette, and catppuccin variable substitution.
 
-### Step 1.1: Extract Grizzly palette from VSCode JSON
+### Step 1a.1: Extract Grizzly palette from VSCode JSON
 
-#### Task 1.1.1: Fetch `Paddy-grizzly-color-theme.json` from the Paddy repo
+#### Task 1a.1.1: Fetch `Paddy-grizzly-color-theme.json` from the Paddy repo
 Read the full JSON to identify all color values needed.
 
-#### Task 1.1.2: Map VSCode editor colors to structural palette
+#### Task 1a.1.2: Map VSCode editor colors to structural palette
 Extract: background, foreground, cursor, selection bg/fg, terminal ANSI 0-15. Map to the Ghostty and tmux structural slots.
 
-#### Task 1.1.3: Map VSCode tokenColors to nvim syntax palette
-Walk the `tokenColors` array and map each scope to the corresponding `local p = {}` key in `citadel.lua`. Document any scopes that don't have a direct Citadel analogue.
-
-#### Task 1.1.4: Derive UI depth colors
+#### Task 1a.1.3: Derive UI depth colors
 From the Grizzly background (`#201612`), derive: crust, mantle, surface0/1/2, overlay0/1/2, subtext0/1. Use the same lightening strategy as Citadel (progressively lighter shades in the same hue family).
 
-### Step 1.2: Create Ghostty theme
+### Step 1a.2: Create Ghostty theme
 
-#### Task 1.2.1: Create `ghostty/themes/grizzly`
+#### Task 1a.2.1: Create `ghostty/themes/grizzly`
 Copy `ghostty/themes/citadel` structure, replace all hex values with Grizzly palette.
 
 **Critical file:** `ghostty/themes/grizzly` (new)
 
-### Step 1.3: Create tmux theme
+### Step 1a.3: Create tmux theme
 
-#### Task 1.3.1: Create `tmux/themes/grizzly.conf`
+#### Task 1a.3.1: Create `tmux/themes/grizzly.conf`
 Copy `tmux/themes/citadel.conf` structure, replace all `@thm_*` variable values with Grizzly palette. Map ANSI accent colors to catppuccin color names (red, green, yellow, blue, etc.).
 
 **Critical file:** `tmux/themes/grizzly.conf` (new)
 
-### Step 1.4: Create nvim colorscheme
+---
 
-#### Task 1.4.1: Create `nvim/colors/grizzly.lua`
+## Phase 1b: Grizzly nvim colorscheme
+
+The interpretive layer: map VSCode tokenColors to nvim highlight groups and create the colorscheme file. This is where the VSCode→nvim translation requires judgment calls.
+
+### Step 1b.1: Map VSCode tokenColors to nvim syntax palette
+
+#### Task 1b.1.1: Walk the tokenColors array
+Map each VSCode scope to the corresponding `local p = {}` key in `citadel.lua`. Document any scopes that don't have a direct Citadel analogue.
+
+### Step 1b.2: Create nvim colorscheme
+
+#### Task 1b.2.1: Create `nvim/colors/grizzly.lua`
 Copy `nvim/colors/citadel.lua`, update `vim.g.colors_name`, replace the entire `local p = {}` palette block with Grizzly values. The highlight group definitions below the palette remain structurally identical.
 
-#### Task 1.4.2: Verify CursorLine, Visual, and other hardcoded bg values
+#### Task 1b.2.2: Verify CursorLine, Visual, and other hardcoded bg values
 Citadel has a few hardcoded hex values outside the palette table (e.g., `CursorLine bg = "#1e3132"`, `Visual bg = "#493728"`). These need theme-appropriate replacements derived from Grizzly's background.
 
 **Critical file:** `nvim/colors/grizzly.lua` (new)
@@ -99,45 +109,51 @@ Confirm that `PROJECT_THEME=mocha` (and switcher selection of catppuccin flavors
 
 ---
 
-## Phase 3: Ox and Terabyte
+## Phase 3a: Ox (all layers)
 
-With the pattern validated and switcher wired, these are pure file creation — no new logic.
+With the pattern validated and switcher wired, Ox is pure file creation — no new logic. Independent of Phase 3b.
 
-### Step 3.1: Ox
+### Step 3a.1: Extract Ox palette and create theme files
 
-#### Task 3.1.1: Fetch `Paddy-ox-color-theme.json` and map editor + tokenColors
+#### Task 3a.1.1: Fetch `Paddy-ox-color-theme.json` and map editor + tokenColors
 Same mapping process as Grizzly.
 
-#### Task 3.1.2: Derive UI depth colors from Ox background (`#1f0c0f`)
+#### Task 3a.1.2: Derive UI depth colors from Ox background (`#1f0c0f`)
 
-#### Task 3.1.3: Create `ghostty/themes/ox`
+#### Task 3a.1.3: Create `ghostty/themes/ox`
 
 **Critical file:** `ghostty/themes/ox` (new)
 
-#### Task 3.1.4: Create `tmux/themes/ox.conf`
+#### Task 3a.1.4: Create `tmux/themes/ox.conf`
 
 **Critical file:** `tmux/themes/ox.conf` (new)
 
-#### Task 3.1.5: Create `nvim/colors/ox.lua`
+#### Task 3a.1.5: Create `nvim/colors/ox.lua`
 Replace palette and verify derived bg values for CursorLine, Visual, etc.
 
 **Critical file:** `nvim/colors/ox.lua` (new)
 
-### Step 3.2: Terabyte
+---
 
-#### Task 3.2.1: Fetch `Paddy-terabyte-color-theme.json` and map editor + tokenColors
+## Phase 3b: Terabyte (all layers)
 
-#### Task 3.2.2: Derive UI depth colors from Terabyte background (`#0b1a1a`)
+Independent of Phase 3a. Pure file creation following the established pattern.
 
-#### Task 3.2.3: Create `ghostty/themes/terabyte`
+### Step 3b.1: Extract Terabyte palette and create theme files
+
+#### Task 3b.1.1: Fetch `Paddy-terabyte-color-theme.json` and map editor + tokenColors
+
+#### Task 3b.1.2: Derive UI depth colors from Terabyte background (`#0b1a1a`)
+
+#### Task 3b.1.3: Create `ghostty/themes/terabyte`
 
 **Critical file:** `ghostty/themes/terabyte` (new)
 
-#### Task 3.2.4: Create `tmux/themes/terabyte.conf`
+#### Task 3b.1.4: Create `tmux/themes/terabyte.conf`
 
 **Critical file:** `tmux/themes/terabyte.conf` (new)
 
-#### Task 3.2.5: Create `nvim/colors/terabyte.lua`
+#### Task 3b.1.5: Create `nvim/colors/terabyte.lua`
 Replace palette and verify derived bg values for CursorLine, Visual, etc.
 
 **Critical file:** `nvim/colors/terabyte.lua` (new)
