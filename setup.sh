@@ -53,7 +53,6 @@ backup_and_link "$DOTFILES_DIR/nvim"               "$HOME/.config/nvim"
 backup_and_link "$DOTFILES_DIR/starship.toml"      "$HOME/.config/starship.toml"
 backup_and_link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
 backup_and_link "$DOTFILES_DIR/tmux/themes"        "$HOME/.tmux.conf.d/themes"
-backup_and_link "$DOTFILES_DIR/tmux/scripts"       "$HOME/.tmux/scripts"
 backup_and_link "$DOTFILES_DIR/claude-code"        "$HOME/.config/claude-code"
 backup_and_link "$DOTFILES_DIR/claude-code/settings.json" "$HOME/.claude/settings.json"
 

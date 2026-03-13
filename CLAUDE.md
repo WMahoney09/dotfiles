@@ -9,8 +9,7 @@ This repository manages personal dev environment configuration files with symlin
 - `ghostty/config` — Ghostty terminal config. The entire `ghostty/` directory is symlinked to `~/.config/ghostty`.
 - `nvim/` — AstroNvim user config. Symlinked to `~/.config/nvim`. `lazy-lock.json` IS tracked for reproducible plugin versions.
 - `starship.toml` — Starship prompt config. Symlinked to `~/.config/starship.toml`.
-- `claude-code/` — Claude Code extensions. Symlinked to `~/.config/claude-code`. Contains status line script, session hooks, and `settings.json` (symlinked to `~/.claude/settings.json`).
-- `tmux/scripts/` — tmux helper scripts. Symlinked to `~/.tmux/scripts`. Contains the context window status bar widget.
+- `claude-code/` — Claude Code configuration. Symlinked to `~/.config/claude-code`. Contains `settings.json` (symlinked to `~/.claude/settings.json`).
 - `Brewfile` — Homebrew package list for macOS. Not a hard dependency — Linux users install manually.
 - `setup.sh` — Idempotent symlink script. Backs up existing files before replacing.
 
