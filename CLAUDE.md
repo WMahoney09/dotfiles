@@ -15,6 +15,7 @@ This repository manages personal dev environment configuration files with symlin
 
 ## Conventions
 
+- **Always read and write files in this repo**, never at the symlink target. These files are symlinked to their system locations (e.g., `~/.zshrc`, `~/.config/ghostty`, `~/.claude/settings.json`), but this repo is the source of truth. If you need to inspect a config, read it here. If you need to modify a config, edit it here. Operating on symlink targets may trigger unnecessary permission prompts and bypasses version control.
 - **Edit configs here**, never at the symlink target (e.g., edit `dotfiles/.zshrc`, not `~/.zshrc`).
 - **Adding a new config:** Add the file/directory here, add a `backup_and_link` call to `setup.sh`, and update README.md.
 - **Guarded AstroNvim files** (`if true then return {} end`) are template extension points — keep the guards unless activating.
