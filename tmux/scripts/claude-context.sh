@@ -17,14 +17,9 @@ tmp_file="/tmp/claude-context-${tty_key}.json"
 # Read context data
 data=$(cat "$tmp_file" 2>/dev/null) || exit 0
 used=$(echo "$data" | jq -r '.used // empty') || exit 0
-timestamp=$(echo "$data" | jq -r '.timestamp // empty') || exit 0
 
 # Validate we got data
 [ -z "$used" ] && exit 0
-
-# Check staleness (5 minute threshold)
-now=$(date +%s)
-[ -n "$timestamp" ] && [ $((now - timestamp)) -gt 300 ] && exit 0
 
 # Resolve theme colors from tmux variables
 color_green=$(tmux show -gqv @thm_green 2>/dev/null)
