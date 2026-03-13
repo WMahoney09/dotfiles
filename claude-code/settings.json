@@ -1,0 +1,15 @@
+{
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.config/claude-code/status-line.sh"
+  },
+  "hooks": {
+    "SessionEnd": [
+      {
+        "type": "command",
+        "command": "~/.config/claude-code/session-end.sh"
+      }
+    ]
+  }
+}
