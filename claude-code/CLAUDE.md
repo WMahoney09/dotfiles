@@ -1,26 +1,28 @@
 # Global Agent Instructions
 
-## Bash: One Command Per Call
+## Bash: One Command Per Call (MANDATORY)
 
-Claude Code's permission system matches Bash commands by prefix. Compound commands and shell substitution create strings that bypass permission patterns and **always trigger interactive prompts**, breaking autonomous flow.
+Every Bash tool call must contain exactly one simple command. This is a hard constraint, not a guideline. Violations cause permission prompts that block autonomous execution.
 
-**Never do these:**
+NEVER combine commands with `&&`, `||`, `;`, or pipes.
+NEVER use shell substitution `$(...)` inside arguments.
+ALWAYS make separate Bash tool calls for each command.
 
-| Anti-pattern | Why it breaks | Use instead |
-|---|---|---|
-| `cd /path && git status` | Compound `&&` — won't match `Bash(git *)` | `git -C /path status` |
-| `git add file && git commit` | Compound `&&` — matches neither pattern | Separate Bash calls: `git add file`, then `git commit` |
-| `git status && echo "---" && git log` | Compound `&&` — no prefix match | Separate Bash calls for each command |
-| `git commit -m "$(cat <<'EOF'...)"` | Shell substitution `$(...)` | Write to `/tmp/commit_msg.txt`, then `git commit -F /tmp/commit_msg.txt` |
-| `gh pr create --body "$(cat file)"` | Shell substitution `$(...)` | `gh pr create --body-file /tmp/pr_body.txt` |
-| `command | tail -20` | Pipe — won't match `Bash(command *)` | Run command alone; accept full output |
+Instead of: `git add file && git commit -m "msg"`
+Do: Two separate Bash calls — first `git add file`, then `git commit -F /tmp/msg.txt`
 
-**Rules:**
-- One command per Bash call — no `&&`, `||`, `;`, or pipes
-- Use `git -C /path` instead of `cd /path && git`
-- Use file flags (`-F`, `--body-file`) instead of shell substitution (`$(cat ...)`)
-- Use MCP tools when available instead of complex CLI invocations
+Instead of: `git commit -m "$(cat <<'EOF'...EOF)"`
+Do: Write message to `/tmp/msg.txt` with the Write tool, then `git commit -F /tmp/msg.txt`
+
+Instead of: `cd /path && git status`
+Do: `git -C /path status`
+
+Instead of: `gh pr create --body "$(cat file)"`
+Do: `gh pr create --body-file /tmp/pr_body.txt`
+
+Instead of: `command | tail -20`
+Do: Run the command alone in a single Bash call
 
 ## Temp Files: Use the Write Tool
 
-When you need a temp file (e.g., commit messages, PR bodies), use the **Write tool** to create it at `/tmp/<filename>`. Never use `cat > /tmp/file << 'EOF'` or other Bash-based file creation — that's a compound command that triggers permission prompts.
+When you need a temp file (e.g., commit messages, PR bodies), use the **Write tool** to create it at `/tmp/<filename>`. Never use Bash-based file creation — that triggers permission prompts.
