@@ -55,6 +55,7 @@ backup_and_link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
 backup_and_link "$DOTFILES_DIR/tmux/themes"        "$HOME/.tmux.conf.d/themes"
 backup_and_link "$DOTFILES_DIR/claude-code"        "$HOME/.config/claude-code"
 backup_and_link "$DOTFILES_DIR/claude-code/settings.json" "$HOME/.claude/settings.json"
+backup_and_link "$DOTFILES_DIR/claude-code/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
 
 echo ""
 
