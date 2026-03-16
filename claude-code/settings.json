@@ -34,6 +34,12 @@
       "Read(~/agentic/tooling/**)",
       "Edit(~/agentic/tooling/**)",
       "Write(~/agentic/tooling/**)",
+      "Read(//tmp/**)",
+      "Write(//tmp/**)",
+      "Edit(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Write(//private/tmp/**)",
+      "Edit(//private/tmp/**)",
       "WebSearch"
     ]
   },

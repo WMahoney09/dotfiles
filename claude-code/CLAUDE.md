@@ -20,3 +20,7 @@ Claude Code's permission system matches Bash commands by prefix. Compound comman
 - Use `git -C /path` instead of `cd /path && git`
 - Use file flags (`-F`, `--body-file`) instead of shell substitution (`$(cat ...)`)
 - Use MCP tools when available instead of complex CLI invocations
+
+## Temp Files: Use the Write Tool
+
+When you need a temp file (e.g., commit messages, PR bodies), use the **Write tool** to create it at `/tmp/<filename>`. Never use `cat > /tmp/file << 'EOF'` or other Bash-based file creation — that's a compound command that triggers permission prompts.
