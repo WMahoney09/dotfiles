@@ -21,6 +21,7 @@
       "mcp__github__search_code",
       "mcp__github__search_issues",
       "Bash(gh:*)",
+      "Bash(git -C:*)",
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git diff:*)",
