@@ -49,5 +49,6 @@
   "statusLine": {
     "type": "command",
     "command": "~/.config/claude-code/statusline.sh"
-  }
+  },
+  "effortLevel": "high"
 }
