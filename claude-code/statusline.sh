@@ -30,6 +30,7 @@ FG_DK=235 # dark text
 
 # Git status
 branch=$(git -C "$cwd" rev-parse --abbrev-ref HEAD 2>/dev/null)
+commit_hash=$(git -C "$cwd" rev-parse --short=7 HEAD 2>/dev/null)
 git_dirty=false
 git_unpushed=false
 git_icons=""
@@ -109,7 +110,8 @@ r1=""
 r1+="$(bg $BG1)$(fg $FG_LT) ${dir} "
 if [[ -n "$branch" ]]; then
   r1+="$(bg $GIT_BG)$(fg $BG1)${SEP}$(fg $GIT_FG) ${branch}${git_icons} "
-  r1+="$(reset)$(fg $GIT_BG)${SEP}$(reset)"
+  r1+="$(bg $BG2)$(fg $GIT_BG)${SEP}$(fg $FG_LT) ${commit_hash} "
+  r1+="$(reset)$(fg $BG2)${SEP}$(reset)"
 else
   r1+="$(reset)$(fg $BG1)${SEP}$(reset)"
 fi
