@@ -26,3 +26,13 @@ Do: Run the command alone in a single Bash call
 ## Temp Files: Use the Write Tool
 
 When you need a temp file (e.g., commit messages, PR bodies), use the **Write tool** to create it at `/tmp/<filename>`. Never use Bash-based file creation — that triggers permission prompts.
+
+## No Throwaway Scripts (MANDATORY)
+
+NEVER write Python, shell, awk, jq, or other scripts to parse, filter, or transform data. Instead, read files directly with the Read tool and reason over their contents in-context.
+
+This applies to logs, JSON, CSVs, command output — any data. If a file is large, use Read with offset/limit to page through it. Do not pipe files through inline scripts for processing.
+
+The only exception is if the user explicitly asks you to write a script.
+
+Why: The user has no visibility into what ad-hoc scripts do. Token cost is not a concern — transparency is.
