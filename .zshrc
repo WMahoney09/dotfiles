@@ -2,6 +2,9 @@
 export EDITOR=nvim
 export VISUAL=nvim
 
+# ─── SECRETS ─────────────────────────────────────────────────────────────────
+[ -f ~/.secrets ] && source ~/.secrets
+
 # ─── PATH ─────────────────────────────────────────────────────────────────────
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
