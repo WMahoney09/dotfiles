@@ -92,22 +92,16 @@ backup_and_link "$DOTFILES_DIR/.secrets" "$HOME/.secrets"
 # ─── Claude Code MCP servers ────────────────────────────────────────────────
 echo "Setting up MCP servers..."
 if command -v claude >/dev/null 2>&1; then
-  claude mcp add-json context7 '{"type":"stdio","command":"npx","args":["-y","@upstash/context7-mcp"],"env":{}}' 2>/dev/null
+  claude mcp add-json context7 '{"type":"stdio","command":"npx","args":["-y","@upstash/context7-mcp"],"env":{}}' --scope user 2>/dev/null
   echo "  [mcp] context7"
 
-  claude mcp add-json github-personal '{"type":"stdio","command":"docker","args":["run","-i","--rm","-e","GITHUB_PERSONAL_ACCESS_TOKEN","ghcr.io/github/github-mcp-server"],"env":{"GITHUB_PERSONAL_ACCESS_TOKEN":"${GITHUB_PERSONAL_ACCESS_TOKEN}"}}' 2>/dev/null
-  echo "  [mcp] github-personal"
-
-  claude mcp add-json github-work '{"type":"stdio","command":"docker","args":["run","-i","--rm","-e","GITHUB_PERSONAL_ACCESS_TOKEN","ghcr.io/github/github-mcp-server"],"env":{"GITHUB_PERSONAL_ACCESS_TOKEN":"${GITHUB_PERSONAL_ACCESS_TOKEN_GNAR}"}}' 2>/dev/null
-  echo "  [mcp] github-work"
-
-  claude mcp add-json render '{"type":"http","url":"https://mcp.render.com/mcp","headers":{"Authorization":"Bearer ${RENDER_API_TOKEN}"}}' 2>/dev/null
+claude mcp add-json render '{"type":"http","url":"https://mcp.render.com/mcp","headers":{"Authorization":"Bearer ${RENDER_API_TOKEN}"}}' --scope user 2>/dev/null
   echo "  [mcp] render"
 
-  claude mcp add-json vercel '{"type":"http","url":"https://mcp.vercel.com"}' 2>/dev/null
+  claude mcp add-json vercel '{"type":"http","url":"https://mcp.vercel.com"}' --scope user 2>/dev/null
   echo "  [mcp] vercel"
 
-  claude mcp add-json figma '{"type":"http","url":"https://mcp.figma.com/mcp"}' 2>/dev/null
+  claude mcp add-json figma '{"type":"http","url":"https://mcp.figma.com/mcp"}' --scope user 2>/dev/null
   echo "  [mcp] figma"
 else
   echo "  [skip] claude CLI not found — install Claude Code first"

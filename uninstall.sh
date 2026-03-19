@@ -69,8 +69,6 @@ echo ""
 echo "Removing MCP servers..."
 if command -v claude >/dev/null 2>&1; then
   claude mcp remove context7 2>/dev/null && echo "  [rm]   context7" || echo "  [skip] context7"
-  claude mcp remove github-personal 2>/dev/null && echo "  [rm]   github-personal" || echo "  [skip] github-personal"
-  claude mcp remove github-work 2>/dev/null && echo "  [rm]   github-work" || echo "  [skip] github-work"
   claude mcp remove render 2>/dev/null && echo "  [rm]   render" || echo "  [skip] render"
   claude mcp remove vercel 2>/dev/null && echo "  [rm]   vercel" || echo "  [skip] vercel"
   claude mcp remove figma 2>/dev/null && echo "  [rm]   figma" || echo "  [skip] figma"
