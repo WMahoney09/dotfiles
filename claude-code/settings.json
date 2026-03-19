@@ -35,5 +35,19 @@
     "type": "command",
     "command": "~/.config/claude-code/statusline.sh"
   },
+  "enabledPlugins": {
+    "ideate@gnar": true,
+    "ignite@gnar": true,
+    "gnar-react@gnar": true,
+    "spacebase@gnar": true
+  },
+  "extraKnownMarketplaces": {
+    "gnar": {
+      "source": {
+        "source": "github",
+        "repo": "TheGnarCo/agent-skills"
+      }
+    }
+  },
   "effortLevel": "high"
 }

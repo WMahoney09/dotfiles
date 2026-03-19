@@ -1,5 +1,14 @@
 # Global Agent Instructions
 
+## GitHub Identity
+
+- **Username:** WMahoney09
+- **Personal repos:** WMahoney09/*
+- **Organizations:** TheGnarCo, Smartphones-Plus, AMP-SCZ, trustedadvisorassociates, wealth-kitchen, elevenfortyseven, Foundation-for-International-Services
+- **Skills repo:** WMahoney09/agent_skills
+
+When resolving `{owner}` for GitHub API calls or `gh` commands, use the remote origin of the current repo — do not guess or ask.
+
 ## Bash: One Command Per Call (MANDATORY)
 
 Every Bash tool call must contain exactly one simple command. This is a hard constraint, not a guideline. Violations cause permission prompts that block autonomous execution.
