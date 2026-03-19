@@ -80,15 +80,14 @@ else
   echo "  [fix] Disabled macOS 'Hide Ghostty' menu shortcut (Cmd+H → goto_split)"
 fi
 
-# ─── Secrets template ────────────────────────────────────────────────────────
+# ─── Secrets ─────────────────────────────────────────────────────────────────
 echo "Checking secrets..."
-if [ -f "$HOME/.secrets" ]; then
-  echo "  [ok]  ~/.secrets exists"
-else
-  cp "$DOTFILES_DIR/.secrets.example" "$HOME/.secrets"
-  chmod 600 "$HOME/.secrets"
-  echo "  [new] Created ~/.secrets from template — fill in your values"
+if [ ! -f "$DOTFILES_DIR/.secrets" ]; then
+  cp "$DOTFILES_DIR/.secrets.example" "$DOTFILES_DIR/.secrets"
+  chmod 600 "$DOTFILES_DIR/.secrets"
+  echo "  [new] Created .secrets from template — fill in your values"
 fi
+backup_and_link "$DOTFILES_DIR/.secrets" "$HOME/.secrets"
 
 # ─── Claude Code MCP servers ────────────────────────────────────────────────
 echo "Setting up MCP servers..."
