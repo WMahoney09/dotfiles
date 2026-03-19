@@ -28,6 +28,7 @@
       "Read(//private/tmp/**)",
       "Write(//private/tmp/**)",
       "Edit(//private/tmp/**)",
+      "Read(//dev/null)",
       "WebSearch"
     ]
   },
