@@ -4,23 +4,23 @@ Personal dev environment configuration files — shell, terminal, editor, prompt
 
 ## What's included
 
-| Tool | Config location | Description |
-|---|---|---|
-| Zsh | `.zshrc`, `.zsh_plugins.txt` | Shell config with Antidote plugin manager |
-| Ghostty | `ghostty/config` | Terminal emulator (Dracula theme, Fira Code, vim-style splits) |
-| NeoVim | `nvim/` | AstroNvim user config with Mason auto-installed LSPs |
-| Starship | `starship.toml` | Cross-shell prompt with git integration |
-| tmux | `tmux/` | Terminal multiplexer with TPM plugin manager |
-| Claude Code | `claude-code/` | AI coding assistant settings, global instructions, and MCP servers |
+| Tool        | Config location              | Description                                                        |
+| ----------- | ---------------------------- | ------------------------------------------------------------------ |
+| Zsh         | `.zshrc`, `.zsh_plugins.txt` | Shell config with Antidote plugin manager                          |
+| Ghostty     | `ghostty/config`             | Terminal emulator (Dracula theme, Fira Code, vim-style splits)     |
+| NeoVim      | `nvim/`                      | AstroNvim user config with Mason auto-installed LSPs               |
+| Starship    | `starship.toml`              | Cross-shell prompt with git integration                            |
+| tmux        | `tmux/`                      | Terminal multiplexer with TPM plugin manager                       |
+| Claude Code | `claude-code/`               | AI coding assistant settings, global instructions, and MCP servers |
 
 ## Getting started
 
 If you're a colleague picking this up, **fork the repo** first — then clone your fork. This gives you your own copy to customize while still being able to pull updates from upstream.
 
 ```bash
-# Fork via GitHub, then:
-git clone git@github.com:<your-username>/dotfiles.git ~/agentic/tooling/dotfiles
-cd ~/agentic/tooling/dotfiles
+# Fork via GitHub, then clone wherever you like:
+git clone git@github.com:<your-username>/dotfiles.git ~/dotfiles  # or wherever
+cd ~/dotfiles
 
 # Track upstream for future updates
 git remote add upstream git@github.com:WMahoney09/dotfiles.git
@@ -73,3 +73,13 @@ dotfiles/
 ## How setup.sh works
 
 `setup.sh` creates symlinks from standard config locations into this repo. If a file or directory already exists at a target location, it's backed up to `~/.dotfiles-backup/<timestamp>/` before being replaced. Running the script multiple times is safe — it skips symlinks that already point correctly.
+
+## Uninstall
+
+```bash
+./uninstall.sh
+```
+
+Removes all symlinks that point into this repo, removes MCP servers, and cleans up TPM. Only touches symlinks that actually belong to this dotfiles repo. If `setup.sh` backed up your original configs, it points you to the backup directory so you can restore them.
+
+Homebrew packages are **not** uninstalled automatically — they may be shared with other tools. To remove them manually, refer to the `Brewfile` for what was added or use `brew bundle cleanup --file=Brewfile --force`.
