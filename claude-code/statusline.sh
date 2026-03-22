@@ -56,12 +56,12 @@ if [[ -n "$branch" ]]; then
       git_icons+=" ⇣${behind}"
     fi
   fi
-  # Git segment color: red=dirty, amber=diverged from upstream, green=clean
+  # Git segment color: dark amber=dirty, light amber=diverged, green=clean
   if $git_dirty; then
-    GIT_BG=124   # red
-    GIT_FG=255
+    GIT_BG=172   # dark amber (~#eba31c)
+    GIT_FG=$FG_DK
   elif $git_diverged; then
-    GIT_BG=172   # amber
+    GIT_BG=220   # light amber (~#ffd54c)
     GIT_FG=$FG_DK
   else
     GIT_BG=65    # green
