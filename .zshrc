@@ -9,6 +9,7 @@ export VISUAL=nvim
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(go env GOPATH 2>/dev/null)/bin:$PATH"
 
 # ─── ASDF fpath (must be before compinit) ────────────────────────────────────
 if [ -d "$(brew --prefix asdf 2>/dev/null)/share" ]; then
