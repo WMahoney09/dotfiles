@@ -1,0 +1,28 @@
+# Paddy Grizzly — warm brown/orange on deep charcoal
+# Ported from https://github.com/yl92/paddy-color-theme
+
+background = #201612
+foreground = #f1bc94
+cursor-color = #ff9029
+selection-background = #3c312d
+selection-foreground = #fae8e0
+
+# ANSI Colors (normal)
+palette = 0=#3c312d
+palette = 1=#da2811
+palette = 2=#399227
+palette = 3=#c98621
+palette = 4=#3465a5
+palette = 5=#c40b48
+palette = 6=#08a087
+palette = 7=#f1bc94
+
+# ANSI Colors (bright)
+palette = 8=#4b4138
+palette = 9=#fd4931
+palette = 10=#26be21
+palette = 11=#ffb618
+palette = 12=#3a89d3
+palette = 13=#ff3c7d
+palette = 14=#1bdfbe
+palette = 15=#fae8e0
