@@ -18,11 +18,11 @@ Port three additional Paddy color themes — **Grizzly**, **Ox**, and **Terabyte
 
 ## Progress
 
-- [ ] Phase 1a: Grizzly palette extraction + Ghostty + tmux
-- [ ] Phase 1b: Grizzly nvim colorscheme
-- [ ] Phase 2: Theme switcher and integration wiring
-- [ ] Phase 3a: Ox (all layers)
-- [ ] Phase 3b: Terabyte (all layers)
+- [x] Phase 1a: Grizzly palette extraction + Ghostty + tmux
+- [x] Phase 1b: Grizzly nvim colorscheme
+- [x] Phase 2: Theme switcher and integration wiring — also fixed hardcoded zoom indicator colors to use @thm_* variables
+- [x] Phase 3a: Ox (all layers)
+- [x] Phase 3b: Terabyte (all layers)
 
 ---
 
