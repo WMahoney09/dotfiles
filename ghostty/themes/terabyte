@@ -1,0 +1,28 @@
+# Paddy Terabyte — sage green/cream on dark teal
+# Ported from https://github.com/yl92/paddy-color-theme
+
+background = #0b1a1a
+foreground = #e6d4b2
+cursor-color = #63c888
+selection-background = #243d36
+selection-foreground = #faece0
+
+# ANSI Colors (normal)
+palette = 0=#243d36
+palette = 1=#a94133
+palette = 2=#3bce16
+palette = 3=#b47d36
+palette = 4=#4a89ad
+palette = 5=#cb3e43
+palette = 6=#6cffbd
+palette = 7=#e8bfa1
+
+# ANSI Colors (bright)
+palette = 8=#406662
+palette = 9=#e46857
+palette = 10=#8fe560
+palette = 11=#ffcb2f
+palette = 12=#68bbdb
+palette = 13=#f3777b
+palette = 14=#c0ffe6
+palette = 15=#faece0
