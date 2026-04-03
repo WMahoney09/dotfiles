@@ -1,0 +1,28 @@
+# Paddy Ox — bold red/orange on dark burgundy
+# Ported from https://github.com/yl92/paddy-color-theme
+
+background = #1f0c0f
+foreground = #ecaf87
+cursor-color = #f0b28e
+selection-background = #332726
+selection-foreground = #fae8e0
+
+# ANSI Colors (normal)
+palette = 0=#332726
+palette = 1=#bc1600
+palette = 2=#39a150
+palette = 3=#d39e0d
+palette = 4=#4075a7
+palette = 5=#d0245e
+palette = 6=#29ad97
+palette = 7=#cfb5a9
+
+# ANSI Colors (bright)
+palette = 8=#4d3232
+palette = 9=#ff2e13
+palette = 10=#73c84c
+palette = 11=#ffc918
+palette = 12=#62b2e4
+palette = 13=#ef4980
+palette = 14=#60dec9
+palette = 15=#fae8e0
