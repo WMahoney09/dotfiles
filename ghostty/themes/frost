@@ -1,0 +1,28 @@
+# Paddy Frost — light theme, deep green on white
+# Ported from https://github.com/yl92/paddy-color-theme
+
+background = #f6faf8
+foreground = #186554
+cursor-color = #07ad3f
+selection-background = #badfd1
+selection-foreground = #000000
+
+# ANSI Colors (normal)
+palette = 0=#000000
+palette = 1=#b61702
+palette = 2=#068020
+palette = 3=#d37d0d
+palette = 4=#3465a5
+palette = 5=#c40b48
+palette = 6=#08a087
+palette = 7=#a5b4ab
+
+# ANSI Colors (bright)
+palette = 8=#4a574d
+palette = 9=#d43e2a
+palette = 10=#1b9e47
+palette = 11=#ff9b18
+palette = 12=#3a89d3
+palette = 13=#ff246d
+palette = 14=#1bdfbe
+palette = 15=#c7cecb
