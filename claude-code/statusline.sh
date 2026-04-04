@@ -139,7 +139,7 @@ cost=$(printf '$%.2f' "$cost")
 ctx="${ctx_pct}%"
 
 # --- Powerline rendering (true color) ---
-SEP=$(printf '\xee\x82\xb0')
+SEP=$(printf '\xee\x82\xb4')
 
 fg() { printf '\e[38;2;%d;%d;%dm' "0x${1:0:2}" "0x${1:2:2}" "0x${1:4:2}"; }
 bg() { printf '\e[48;2;%d;%d;%dm' "0x${1:0:2}" "0x${1:2:2}" "0x${1:4:2}"; }
