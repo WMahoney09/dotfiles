@@ -2,7 +2,7 @@
 # Voyager workflow - terminal-centric agentic development
 
 # Theme & Colors (loaded from external file — managed by theme picker)
-config-file = ?/Users/will/.config/ghostty/theme.conf
+config-file = ?/Users/will/.local/share/ghostty/theme.conf
 
 # Font Configuration
 font-family = FiraCode Nerd Font
