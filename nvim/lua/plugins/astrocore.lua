@@ -65,5 +65,24 @@ return {
         -- ["<C-S>"] = false,
       },
     },
+    -- Sync colorscheme from ~/.config/current-theme on focus
+    autocmds = {
+      theme_sync = {
+        {
+          event = { "VimEnter", "FocusGained" },
+          desc = "Sync colorscheme from theme state file",
+          callback = function()
+            local theme_file = vim.fn.expand("~/.config/current-theme")
+            if vim.fn.filereadable(theme_file) ~= 1 then return end
+            local lines = vim.fn.readfile(theme_file)
+            local theme = lines[1]
+            if not theme or theme == "" then return end
+            if theme == vim.g.colors_name then return end
+            local ok = pcall(vim.cmd.colorscheme, theme)
+            if not ok then pcall(vim.cmd.colorscheme, "catppuccin-" .. theme) end
+          end,
+        },
+      },
+    },
   },
 }
