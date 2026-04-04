@@ -16,7 +16,7 @@ Extend the tmux theme picker (`prefix + T`) to propagate the selected theme acro
 ## Progress
 
 - [x] Phase 1: Theme state file and picker integration
-- [ ] Phase 2: tmux startup reads theme file
+- [x] Phase 2: tmux startup reads theme file
 - [ ] Phase 3: nvim FocusGained autocommand
 
 ---
