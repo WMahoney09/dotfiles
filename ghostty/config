@@ -2,7 +2,7 @@
 # Voyager workflow - terminal-centric agentic development
 
 # Theme & Colors
-theme = citadel
+theme = terabyte
 
 # Font Configuration
 font-family = FiraCode Nerd Font
