@@ -75,6 +75,10 @@ bindkey '^l' forward-char
 alias ll="ls -l"
 alias la="ls -la"
 
+# ___ TMUX ALIASES ──────────────────────────────────────────────────────────────
+alias ts="tmux ls"
+alias tup="tmux attach -t"
+
 # ─── GIT ALIASES ──────────────────────────────────────────────────────────────
 alias gri="git rebase -i"
 alias gf="git fetch --prune"
