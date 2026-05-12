@@ -11,7 +11,6 @@ Personal dev environment configuration files — shell, terminal, editor, prompt
 | NeoVim      | `nvim/`                      | AstroNvim user config with Mason auto-installed LSPs               |
 | Starship    | `starship.toml`              | Cross-shell prompt with git integration                            |
 | tmux        | `tmux/`                      | Terminal multiplexer with TPM plugin manager                       |
-| Claude Code | `claude-code/`               | AI coding assistant settings, global instructions, and MCP servers |
 
 ## Getting started
 
@@ -33,6 +32,8 @@ brew bundle
 ```
 
 After running `setup.sh`, edit `.secrets` and fill in your own token values (see `.secrets.example` for what's needed).
+
+Claude Code configuration (global `CLAUDE.md`, `settings.json`, hooks, skills, agents, statusline) lives in a separate repo: [`agent-harness`](https://github.com/WMahoney09/agent-harness). Clone it and run its `setup.sh` to install.
 
 To pull future updates from upstream:
 
@@ -65,7 +66,6 @@ dotfiles/
   nvim/                  # AstroNvim user config (symlinked to ~/.config/nvim)
   starship.toml          # Starship prompt config (symlinked to ~/.config/starship.toml)
   tmux/                  # tmux config and themes (symlinked to ~/.tmux.conf)
-  claude-code/           # Claude Code config (symlinked to ~/.config/claude-code)
   Brewfile               # Homebrew package list
   setup.sh               # Idempotent symlink script
 ```

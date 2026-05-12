@@ -53,9 +53,6 @@ backup_and_link "$DOTFILES_DIR/nvim"               "$HOME/.config/nvim"
 backup_and_link "$DOTFILES_DIR/starship.toml"      "$HOME/.config/starship.toml"
 backup_and_link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
 backup_and_link "$DOTFILES_DIR/tmux/themes"        "$HOME/.tmux.conf.d/themes"
-backup_and_link "$DOTFILES_DIR/claude-code"        "$HOME/.config/claude-code"
-backup_and_link "$DOTFILES_DIR/claude-code/settings.json" "$HOME/.claude/settings.json"
-backup_and_link "$DOTFILES_DIR/claude-code/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
 
 echo ""
 
@@ -88,24 +85,6 @@ if [ ! -f "$DOTFILES_DIR/.secrets" ]; then
   echo "  [new] Created .secrets from template — fill in your values"
 fi
 backup_and_link "$DOTFILES_DIR/.secrets" "$HOME/.secrets"
-
-# ─── Claude Code MCP servers ────────────────────────────────────────────────
-echo "Setting up MCP servers..."
-if command -v claude >/dev/null 2>&1; then
-  claude mcp add-json context7 '{"type":"stdio","command":"npx","args":["-y","@upstash/context7-mcp"],"env":{}}' --scope user 2>/dev/null
-  echo "  [mcp] context7"
-
-claude mcp add-json render '{"type":"http","url":"https://mcp.render.com/mcp","headers":{"Authorization":"Bearer ${RENDER_API_TOKEN}"}}' --scope user 2>/dev/null
-  echo "  [mcp] render"
-
-  claude mcp add-json vercel '{"type":"http","url":"https://mcp.vercel.com"}' --scope user 2>/dev/null
-  echo "  [mcp] vercel"
-
-  claude mcp add-json figma '{"type":"http","url":"https://mcp.figma.com/mcp"}' --scope user 2>/dev/null
-  echo "  [mcp] figma"
-else
-  echo "  [skip] claude CLI not found — install Claude Code first"
-fi
 
 echo ""
 if [ -d "$BACKUP_DIR" ]; then

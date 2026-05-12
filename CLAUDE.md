@@ -12,14 +12,10 @@ This repository manages personal dev environment configuration files with symlin
 - `tmux/themes/` — Custom tmux theme files. Symlinked to `~/.tmux.conf.d/themes/`. Contains `citadel.conf`, which maps the Paddy Citadel palette to catppuccin's `@thm_*` variable interface.
 - `nvim/` — AstroNvim user config. Symlinked to `~/.config/nvim`. Has its own `CLAUDE.md` with structure details. `lazy-lock.json` IS tracked for reproducible plugin versions.
 - `starship.toml` — Starship prompt config. Symlinked to `~/.config/starship.toml`.
-- `claude-code/` — Claude Code configuration. Symlinked to `~/.config/claude-code`.
-  - `settings.json` — Global Claude Code settings (permissions, plugins, MCP config). Also symlinked to `~/.claude/settings.json`.
-  - `CLAUDE.md` — Global agent instructions. Symlinked to `~/.claude/CLAUDE.md`.
-  - `statusline.sh` — Powerline-style status line script for Claude Code. Renders git status, model, context usage, cost, and duration in ANSI-colored powerline segments.
 - `.claude/settings.local.json` — Project-local Claude Code settings. Gitignored — not shared across machines.
 - `Brewfile` — Homebrew package list (asdf, neovim, starship, antidote, zoxide, fzf, tmux, tmuxinator, ghostty). Not a hard dependency — Linux users install manually.
-- `setup.sh` — Idempotent setup script. Creates symlinks, backs up existing files, installs TPM, registers MCP servers (context7, render, vercel, figma), and applies macOS workarounds (Ghostty Cmd+H fix).
-- `uninstall.sh` — Reverses `setup.sh`. Removes symlinks, MCP servers, and TPM. Only touches symlinks that point into this repo.
+- `setup.sh` — Idempotent setup script. Creates symlinks, backs up existing files, installs TPM, and applies macOS workarounds (Ghostty Cmd+H fix). Claude Code config (including MCP servers) is owned by the `agent-harness` repo.
+- `uninstall.sh` — Reverses `setup.sh`. Removes symlinks and TPM. Only touches symlinks that point into this repo.
 - `docs/workstreams/` — Implementation plans from previous work (paddy-citadel-theme, paddy-theme-expansion). Reference only.
 
 ## Conventions

@@ -43,9 +43,6 @@ remove_if_ours "$HOME/.config/nvim"
 remove_if_ours "$HOME/.config/starship.toml"
 remove_if_ours "$HOME/.tmux.conf"
 remove_if_ours "$HOME/.tmux.conf.d/themes"
-remove_if_ours "$HOME/.config/claude-code"
-remove_if_ours "$HOME/.claude/settings.json"
-remove_if_ours "$HOME/.claude/CLAUDE.md"
 
 # ─── Restore backups ────────────────────────────────────────────────────────
 
@@ -61,19 +58,6 @@ if [ -d "$HOME/.dotfiles-backup" ]; then
   fi
 else
   echo "  [skip] No backups found"
-fi
-
-# ─── Remove MCP servers ─────────────────────────────────────────────────────
-
-echo ""
-echo "Removing MCP servers..."
-if command -v claude >/dev/null 2>&1; then
-  claude mcp remove context7 2>/dev/null && echo "  [rm]   context7" || echo "  [skip] context7"
-  claude mcp remove render 2>/dev/null && echo "  [rm]   render" || echo "  [skip] render"
-  claude mcp remove vercel 2>/dev/null && echo "  [rm]   vercel" || echo "  [skip] vercel"
-  claude mcp remove figma 2>/dev/null && echo "  [rm]   figma" || echo "  [skip] figma"
-else
-  echo "  [skip] claude CLI not found"
 fi
 
 # ─── Remove TPM ──────────────────────────────────────────────────────────────
